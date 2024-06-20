@@ -28,4 +28,16 @@ codeunit 50800 "NP EventSubscribers"
             end;
         end;
     end;
+
+    [EventSubscriber(ObjectType::Table, Database::Item, 'OnBeforeModifyEvent', '', false, false)]
+    local procedure CheckEditPossible(var Rec: Record Item)
+    var
+        UserSetUp: Record "User Setup";
+    begin
+        UserSetUp.Reset();
+        if UserSetUp.Get(UserId) then begin
+            if UserSetUp."Allow Item Card Edit" = false then
+                Error('You do not have permission to edit an item card');
+        end;
+    end;
 }
