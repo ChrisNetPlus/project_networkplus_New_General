@@ -10,7 +10,7 @@ page 50850 "NP PO Change Log API"
     EntitySetName = 'POchangeLogs';
     PageType = API;
     SourceTable = "Change Log Entry";
-    SourceTableView = where("Table No." = filter(39), Exported = filter(false));
+    SourceTableView = where("Table No." = filter(39), Exported = filter(false), "Primary Key Field 2 Value" = filter('PO*'));
     Permissions = tabledata "Change Log Entry" = RIMD;
     layout
     {
@@ -21,6 +21,10 @@ page 50850 "NP PO Change Log API"
                 field(dateAndTime; Rec."Date and Time")
                 {
                     Caption = 'Date and Time';
+                }
+                field(purchaseOrderNo; Rec."Primary Key Field 2 Value")
+                {
+                    Caption = 'PO Number';
                 }
                 field("fieldCaption"; Rec."Field Caption")
                 {
