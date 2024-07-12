@@ -68,6 +68,7 @@ codeunit 50800 "NP EventSubscribers"
         OrderedLines.SetRange("No.", ItemNo);
         OrderedLines.SetRange("Location Code", LocationCode);
         OrderedLines.SetFilter("Outstanding Quantity", '<>%1', 0);
+        OrderedLines.SetRange("NP Cancelled Order", false);
         if OrderedLines.FindSet() then
             repeat
                 ExitQty := ExitQty + OrderedLines."Outstanding Quantity";
