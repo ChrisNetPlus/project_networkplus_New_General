@@ -76,7 +76,7 @@ codeunit 50800 "NP EventSubscribers"
         exit(ExitQty);
     end;
 
-    [EventSubscriber(ObjectType::Table, Database::Item, 'OnBeforeModifyEvent', '', false, false)]
+    [EventSubscriber(ObjectType::Page, Page::"Item Card", 'OnModifyRecordEvent', '', false, false)]
     local procedure CheckEditPossible(var Rec: Record Item)
     var
         UserSetUp: Record "User Setup";
