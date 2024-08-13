@@ -46,6 +46,10 @@ page 50850 "NP PO Change Log API"
                 {
                     Caption = 'New Value';
                 }
+                field(lineNumber; Rec."Primary Key Field 3 Value")
+                {
+                    Caption = 'Line Number';
+                }
             }
         }
     }
